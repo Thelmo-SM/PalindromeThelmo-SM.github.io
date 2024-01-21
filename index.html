@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polindromo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="polindromo.js"></script>
+</head>
+<body>
+    <div class="polindromo">
+        <h2>Welcome</h2>
+        <h1>Palindrome</h1>
+        <label for="text">Write a word or palindrome number:</label>
+        <input type="text" name="text" id="text" placeholder="Write here" minlength="4" maxlength="5">
+        <button class="mi-boton" onclick="polindromoScript()">Find out</button>
+        <div id="resultado"></div>
+    </div>
+
+    
+    <script>
+
+function polindromoScript() {
+    let valorInput = document.getElementById("text").value;
+    let divResultado = document.getElementById("resultado");
+
+    if (valorInput === "" || valorInput === undefined || valorInput === null) {
+        divResultado.textContent = `Enter a text.`;
+        return;
+    }
+
+    let reverseInput = valorInput.split("").reverse().join("");
+
+    if (valorInput === reverseInput) {
+        divResultado.textContent = `${valorInput} is palindrome.`;
+    } else {
+        divResultado.textContent = `${valorInput} is not palindrome.`;
+    }
+
+    if (valorInput.length < 3) {
+        divResultado.textContent = `Your text must be more than 3.`;
+        return;
+    }
+};
+
+    </script>
+</body>
+</html>
